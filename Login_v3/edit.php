@@ -15,28 +15,45 @@ if((!isset ($_SESSION['nick']) == true) && (!isset ($_SESSION['senha_login']) ==
     $id = $_SESSION['id'];
 }
 
-$ligacao = new mysqli("localhost","root","","smartmeal");
+        $servername = "DESKTOP-1DOM035\SQLEXPRESS";
 
-if ($ligacao->connect_errno) {
-    echo "Falha na ligação: " . $ligacao->connect_error; 
-    exit();
-}
+        $connectinfo = array( "Database"=>"smartmeal");
+        $conn = sqlsrv_connect($servername,$connectinfo);
 
-$consulta = "UPDATE `login` SET nick='$nome', email='$email', pass='$senha' WHERE id='$id' ";
+        if($conn){
+            #echo "coneection bom" . "<br>";
+        }else{
+            die( print_r( sqlsrv_errors(), true));
+        }
 
-if (!$ligacao->query($consulta)) {
-    echo " ERRO - Falha ao executar a consulta: \"$consulta\" <br>" . $ligacao->error;
-    $ligacao->close();  /* fechar a ligação */
-    unset($_SESSION['nick']);
-    unset($_SESSION['senha_login']);
-    header('Refresh: 5;url=login.php');
-}
-else{
-    echo "Está a ser redirecionado para a página de login, por favor inicie sessão novamente....";
-    unset($_SESSION['nick']);
-    unset($_SESSION['senha_login']);
-    header('Refresh: 5;url=login.php?sucess=1');
-}
-$ligacao->close();
+        $tsql= "UPDATE user_login SET nick='$nome', email='$email', password='$senha' WHERE id='$id' ";
+        $params = array("updated data", 1);
+        $stmt = sqlsrv_query($conn,$tsql,$params);
+        $rows_affected = sqlsrv_rows_affected( $stmt);
+
+        if($rows_affected === false){
+            die( print_r( sqlsrv_errors(), true));
+       }else if( $rows_affected == -1){
+                unset($_SESSION['nick']);
+                unset($_SESSION['senha_login']);
+                header('Refresh: 5;url=login.php');
+       }else{
+                echo "Está a ser redirecionado para a página de login, por favor inicie sessão novamente....";
+                unset($_SESSION['nick']);
+                unset($_SESSION['senha_login']);
+                header('Refresh: 5;url=login.php?sucess=1');
+       }
+
+        /*if($insertresults){
+            echo "Está a ser redirecionado para a página de login, por favor inicie sessão novamente....";
+            unset($_SESSION['nick']);
+            unset($_SESSION['senha_login']);
+            header('Refresh: 5;url=login.php?sucess=1');
+        }else{
+            unset($_SESSION['nick']);
+            unset($_SESSION['senha_login']);
+            header('Refresh: 5;url=login.php');
+        }*/
+
 
 ?>

@@ -15,13 +15,25 @@ $nick = $_SESSION['nick'];
 $senha = $_SESSION['senha_login'];
 }
 
-$db = "smartmeal";
-$host = "localhost:3306";
-$user = "root";
-$pass = "";
-$con = mysqli_connect($host,$user,$pass,$db) or die ("Sem conexão ao servidor");
+#$db = "smartmeal";
+#$host = "localhost:3306";
+#$user = "root";
+#pass = "";
+#$con = mysqli_connect($host,$user,$pass,$db) or die ("Sem conexão ao servidor");
 
-$query = "SELECT * FROM `login` WHERE  nick = '$nick'";
+        $servername = "DESKTOP-1DOM035\SQLEXPRESS";
+
+        $connectinfo = array( "Database"=>"smartmeal");
+        $conn = sqlsrv_connect($servername,$connectinfo);
+
+        if($conn){
+            #echo "coneection bom" . "<br>";
+        }else{
+            die( print_r( sqlsrv_errors(), true));
+        }
+
+
+/*$query = "SELECT * FROM `login` WHERE  nick = '$nick'";
 
 $result = mysqli_query($con,$query);
 
@@ -30,6 +42,20 @@ $dados = mysqli_fetch_array($result);
 $email = $dados['email'];
 $pass = $dados['pass'];
 $id = $dados['id'];
+$_SESSION['id'] = $id;*/
+
+$sql = "SELECT * FROM user_login WHERE nick='$nick'";
+$stmt = sqlsrv_query($conn,$sql);
+if( $stmt === false) {
+    die( print_r( sqlsrv_errors(), true) );
+}
+
+while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+    $email = $row['email'];
+    $nick = $row['nick'];
+    $pass = $row['password'];
+    $id = $row['id'];
+}
 $_SESSION['id'] = $id;
 
 if(empty($email)){
