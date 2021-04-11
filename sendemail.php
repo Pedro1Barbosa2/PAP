@@ -18,8 +18,8 @@ if(isset($_POST['name'])&&isset($_POST['email'])){
     $mail->isSMTP();
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
-    $mail->Username = "smartmealinfo4@gmail.com";
-    $mail->Password = 'Pb123465!';
+    $mail->Username = "your email";
+    $mail->Password = 'Your Password';
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
 
