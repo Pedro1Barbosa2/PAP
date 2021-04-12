@@ -70,7 +70,7 @@ if(empty($email)){
 ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - admin</title>
+    <title>User - admin</title>
     <link rel="icon" href="images\logoatual.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
