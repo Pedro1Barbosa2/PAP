@@ -124,7 +124,7 @@
 							<p>Programa realizado no âmbito da prova de aptidão profissional, realizado na escola ruiz costa, no ano de 2020/2021, versão esta para demonstração apenas, ao adquirir o produto será editado ao gosto do cliente.</p>
 						</div>
 						<footer>
-							<a href="generic.php" class="button alt">Ler mais</a>
+							<a href="http://pedrombbarbosa.ddns.net" class="button alt">Ler mais</a>
 						</footer>
 					</article>
 				</div>
