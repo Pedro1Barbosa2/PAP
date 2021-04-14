@@ -87,7 +87,7 @@ $getResults= sqlsrv_query($conn, $tsql) or die(print_r(sqlsrv_errors()));
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="pedido.php">
                     <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
                     <span class="title">Pedido</span>
                 </a>

@@ -111,7 +111,7 @@ if(empty($email)){
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="pedido.php">
                     <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
                     <span class="title">Pedido</span>
                 </a>
