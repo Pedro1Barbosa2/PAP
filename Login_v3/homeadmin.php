@@ -96,7 +96,7 @@ $senha = $_SESSION['senha_login'];
                         </div>
                         <div class="card-body">
                             <p>Realizar um pedido manualmente.</p>
-                            <a href="#" class="buttonconfirm">Clicar</a>
+                            <a href="pedido.php" class="buttonconfirm">Clicar</a>
                         </div>
                     </div>
                     <div class="card">
