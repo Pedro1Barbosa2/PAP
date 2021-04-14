@@ -82,6 +82,7 @@
 					<li><a href="generic.php">Prato do dia</a></li>
 					<li><a href="elements.php">Realizar Pedido</a></li>
 					<li><a href="Login_v3/login.php">Admin Login</a></li>
+					<li><a href="estadoped.php">Estado Pedido</a></li>
 				</ul>
 			</nav>		
 			<section id="banner" class="bg-img" data-bg="banner13.jpg">

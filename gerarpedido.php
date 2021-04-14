@@ -20,7 +20,8 @@ if(!empty($_SESSION['cart'])){
 	$getResult2 = sqlsrv_query($conn, $tsql2) or die(print_r(sqlsrv_errors()));
 	while($row2 = sqlsrv_fetch_array($getResult2, SQLSRV_FETCH_ASSOC)){
 		$idped = $row2['id_pedido'];
-		$idped ++;		
+		$idped ++;
+		$_SESSION['idpedido'] = $idped;		 
 	}
                         $total = 0;
 						if(!empty($_SESSION['cart'])){
