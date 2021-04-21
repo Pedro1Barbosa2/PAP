@@ -35,23 +35,14 @@ if(!empty($_SESSION['cart'])){
 						$tsql6 ="INSERT into pedido(mesa,dia,Hora,Total,Estado) values ($mesa,'$data','$hora',$total,'Em processamento')";
                         $insertresults6 = sqlsrv_query($conn, $tsql6) or die(print_r(sqlsrv_errors()));
 							while($row5 = sqlsrv_fetch_array($getResult5, SQLSRV_FETCH_ASSOC)){
-									echo $idprod = $row5['id_produto'];
-		                            echo $prod = $row5['Nomeproduto'];
-                                    echo " ";
-									echo $prec = number_format($row5['preco'], 2);
-                                    echo " ";
-                                    echo " ";
-									echo $qty = $_SESSION['qty_array'][$index];
-                                    echo " ";
-									echo $subtotal = number_format($_SESSION['qty_array'][$index]*$row5['preco'], 2);
-									echo "<br>";
-									#echo $total += $_SESSION['qty_array'][$index]*$prec;
-                                   	/*echo $total += $_SESSION['qty_array'][$index]*$row5['preco'];*/
-									#$idped = "51";
-                                    echo "<br>";
+									$idprod = $row5['id_produto'];
+		                            $prod = $row5['Nomeproduto'];
+									$prec = number_format($row5['preco'], 2);
+									$qty = $_SESSION['qty_array'][$index];
+									$subtotal = number_format($_SESSION['qty_array'][$index]*$row5['preco'], 2);
 									$tsql7 = "INSERT into detalhepedido(id_produto,id_pedido,quantidade,subtotal) values ($idprod,$idped,$qty,$subtotal)";
 									$insertresults7 = sqlsrv_query($conn, $tsql7) or die(print_r(sqlsrv_errors()));
-							
+									header("location:index.php?mesa=$mesa&pedido=1");
 								$index ++;
 							}
 						}

@@ -70,6 +70,12 @@
             <i>ERRO!</i> Nenhum pedido realizado, vá até a aba de realizar pedido e faça o seu!
         </div>";
 		}
+		if(isset($_GET['pedido'])){
+            echo "<div class='alert alert-success'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <i>Sucesso!</i> Pedido realizado com sucesso!
+        </div>";
+		}
         ?>
 
 		<!-- Header -->
