@@ -58,7 +58,7 @@ if($conn){
 					  <img src="images/massas.jpg" class="card-img-top">
 					  <h2 class="card-title ">Massas</h2>
 					  <p class="card-text ">With supporting text below as a natural lead-in to additional content.</p>
-					  <a href="#" class="btn btn-outline-danger text-decoration-none">Escolher</a>
+					  <a href="massas.php" class="btn btn-outline-danger text-decoration-none">Escolher</a>
 					</div>
 				  </div>
 				  <hr />

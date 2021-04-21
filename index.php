@@ -64,6 +64,12 @@
             <i>ERRO!</i> Carrinho vazio, faça o seu pedido primeiro!
         </div>";
 		}
+		if(isset($_GET['ped'])){
+            echo "<div class='alert alert-danger'>
+            <a href='#' class='close' data-dismiss='alert'>&times;</a>
+            <i>ERRO!</i> Nenhum pedido realizado, vá até a aba de realizar pedido e faça o seu!
+        </div>";
+		}
         ?>
 
 		<!-- Header -->

@@ -94,7 +94,6 @@ unset($_SESSION['message']);
 													<?php while($row2 = sqlsrv_fetch_array($getResults2, SQLSRV_FETCH_ASSOC)){ ?>
 													<option value="<?php echo $row2['id_produto']; ?>"><?php echo $row2['Nomeproduto'] . " " . $row2['preco'] . "$";?></option>
 													<?php } ?>
-													<option value="Sem Batata">Sem Batata</option>
 												</select>
 												<p>Bebida</p>
 												<select name="category3" id="category3" required="required">
